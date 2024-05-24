@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pr-llm"
+version = "0.1.0"
+description = ""
+authors = ["Alexandre Verine, Florian Le Bronnec"]
+readme = "README.md"
+packages = [{include = "pr_llm"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.12"
+datasets = "^2.13.1"
+python-dotenv = "^1.0.0"
+transformers = "^4.31.0"
+omegaconf = "^2.3.0"
+sentencepiece = "^0.1.99"
+numpy = "==1.24.4"
+python-hostlist = "^1.23.0"
+nltk = "^3.8.1"
+scikit-learn = "^1.3.2"
+faiss-cpu = "^1.7.4"
+gudhi = "^3.8.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+isort = "^5.12.0"
+ipdb = "^0.13.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

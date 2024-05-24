@@ -1,0 +1,29 @@
+generation:
+  bos_token_id: 1
+  eos_token_id: 2
+  min_new_tokens: 1
+  max_new_tokens: 615
+  pad_token_id: 2
+  do_sample: true
+  top_p: 0.9
+  temperature: 0.6
+  repetition_penalty: 1.18
+
+
+evaluation:
+
+data:
+  path: webtext_15k
+  max_samples: 4000
+  seed: 12357
+
+model:
+    path: Llama-2-7b-hf
+    batch_size: 8
+    task:
+      task_name: "webtext"
+      top_k_words: 10
+      max_length: 4096
+      pad_to_multiple_of: 8
+    device_map: "auto"
+    dtype: "32"

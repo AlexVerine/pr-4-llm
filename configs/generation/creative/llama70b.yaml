@@ -1,0 +1,30 @@
+generation:
+  bos_token_id: 1
+  eos_token_id: 2
+  min_new_tokens: 1
+  max_new_tokens: 448
+  pad_token_id: 2
+  do_sample: true
+  top_p: 1.0
+  temperature: 1.0
+  repetition_penalty: 1.18
+
+
+evaluation:
+
+data:
+  path: creative_writings
+  max_samples: 4000
+  seed: 12357
+
+model:
+    path: Llama-2-70b-hf
+    batch_size: 2
+    task:
+      task_name: "creative"
+      max_length: 4096
+      pad_to_multiple_of: 8
+      min_essay_length: 100
+      max_essay_length: 500
+    device_map: "auto"
+    dtype: "bf16"

@@ -1,0 +1,31 @@
+generation:
+  bos_token_id: 1
+  eos_token_id: 2
+  min_new_tokens: 1
+  max_new_tokens: 448
+  pad_token_id: 2
+  do_sample: true
+  top_p: 0.9
+  temperature: 0.6
+  repetition_penalty: 1.18
+
+
+evaluation:
+
+data:
+  path: wikipedia_bio_icl_15
+  max_samples: 4000
+  seed: 12357
+
+model:
+    path: "vicuna-7b-v1.5"
+    batch_size: 2
+    task:
+      task_name: "wikipedia_bio"
+      max_length: 4096
+      pad_to_multiple_of: 8
+      str_header: "Write biographies of various people. Here are a few examples:\n\n"
+      str_instruction: "- Biography of"
+      chat_tokens: ["USER:", "\n\nASSISTANT:"]
+    device_map: "auto"
+    dtype: "32"

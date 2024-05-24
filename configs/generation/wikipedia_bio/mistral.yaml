@@ -1,0 +1,33 @@
+generation:
+  bos_token_id: 1
+  eos_token_id: 2
+  min_new_tokens: 1
+  max_new_tokens: 432
+  pad_token_id: 2
+  do_sample: true
+  top_p: 1.0
+  temperature: 0.7
+  repetition_penalty: 1.18
+
+
+evaluation:
+
+
+
+
+data:
+  path: wikipedia_bio_icl_15
+  max_samples: 4000
+  seed: 12357
+
+model:
+    path: Mistral-7B-v0.1
+    batch_size: 2
+    task:
+      task_name: "wikipedia_bio"
+      max_length: 4096
+      pad_to_multiple_of: 8
+      str_header: "Write biographies of various people.\n\n"
+      str_instruction: "- Biography of"
+    device_map: "auto"
+    dtype: "32"
